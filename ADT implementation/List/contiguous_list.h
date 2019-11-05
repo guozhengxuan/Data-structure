@@ -69,7 +69,7 @@ Error_code List <List_entry>::retrieve(int position, List_entry& x) const
 {
   if (full())
 	return Error_code::overflow;
-  if (position < 0 || position > count)
+  if (position < 0 || position >= count)
 	return Error_code::range_error;
   x = entry[position];
   return Error_code::success;
@@ -80,7 +80,7 @@ Error_code List <List_entry>::replace(int position, const List_entry& x)
 {
   if (full())
 	return Error_code::overflow;
-  if (position < 0 || position > count)
+  if (position < 0 || position >= count)
 	return Error_code::range_error;
   entry[position] = x;
   return Error_code::success;
@@ -91,7 +91,7 @@ Error_code List <List_entry>::remove(int position, List_entry& x)
 {
   if (full())
 	return Error_code::overflow;
-  if (position < 0 || position > count)
+  if (position < 0 || position >= count)
 	return Error_code::range_error;
   x = entry[position];
   for (int i = position; i < count; i++)
