@@ -138,7 +138,7 @@ Error_code List <List_entry>::retrieve(int position, List_entry& x) const
 		 x; all other entries remain unchanged.
 		 Else: The method fails with a diagnostic error code.*/
 {
-  if (position < 0 || position > count)
+  if (position < 0 || position >= count)
 	return Error_code::range_error;
   Node <List_entry>* pointer = set_position(position);
   x = pointer->entry;
@@ -152,7 +152,7 @@ Error_code List <List_entry>::replace(int position, const List_entry& x)
 		 x, all other entries remain unchanged.
          Else: The method fails with a diagnostic error code.*/
 {
-  if (position < 0 || position > count)
+  if (position < 0 || position >= count)
 	return Error_code::range_error;
   Node <List_entry>* pointer = set_position(position);
   pointer->entry = x;
@@ -170,7 +170,7 @@ Error_code List <List_entry>::remove(int position, List_entry& x)
 {
   if (count == 0)
     return Error_code::fail;
-  if (position < 0 || position > count)
+  if (position < 0 || position >= count)
     return Error_code::range_error;
   Node <List_entry> *previous, *present;
   if (position == 0)
@@ -192,7 +192,7 @@ Error_code List <List_entry>::remove(int position, List_entry& x)
 
 template <class List_entry>
 Error_code List <List_entry>::insert(int position, const List_entry& x)
-/* Post: If the List is not full and 0 <= position < n, where n is the 
+/* Post: If the List is not full and 0 <= position <= n, where n is the 
          number of entries in the List, the method succeeds. Any entry
 		 formerly at position and all later entries have their postion 
 		 numbers increased by 1, and x is inserted at position in the 
@@ -244,7 +244,7 @@ List <List_entry>::~List()
 
 template <class List_entry>
 List <List_entry>::List(const List <List_entry>& original)
-/* Post: The Lsit is initialized as a copy of original.*/
+/* Post: The List is initialized as a copy of original.*/
 {
   int step = 0;
   Node <List_entry>* new_node, * original_node = original.head;
