@@ -1,6 +1,5 @@
 //
 // doubly_cyclic_linked_list.h
-// linked list implementation using nodes as entry storage with both head and tail pointer.
 
 #pragma once
 #include "utility.h"
