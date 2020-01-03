@@ -223,9 +223,9 @@ int main() {
 		break;
 	  case 'L':
 		cout << "Enter the integer you want to search in the tree: ";
-		int search, target;
+		int target;
 		Error_code status;
-		cin >> search;
+		cin >> target;
 		status = tree1.tree_search(target);
 		if (status == success) cout << "Searching success: " << target << endl;
 		else cout << "Searching failed." << endl;
