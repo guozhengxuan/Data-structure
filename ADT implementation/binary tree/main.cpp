@@ -71,6 +71,7 @@ int main() {
 		break;
 	  case 'E':
 		tree1.clear();
+		cout << "The tree has been cleared!" << endl;
 		cout << "Your choice: ";
 		cin >> fuc;
 		break;
@@ -178,6 +179,7 @@ int main() {
 		break;
 	  case 'E':
 		tree1.clear();
+		cout << "The tree has been cleared!" << endl;
 		cout << "Your choice: ";
 		cin >> fuc;
 		break;
