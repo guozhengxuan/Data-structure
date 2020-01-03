@@ -153,6 +153,7 @@ template <class Entry>
 void Binary_tree<Entry>::levelorder(void(*visit)(Entry&))
 /* Post: The tree has been been traversed in level order sequence.*/
 {
+  if (size() == 0) return;
   std::queue <Binary_node <Entry>*> generation;
   Binary_node <Entry>* pointer = root;
   generation.push(pointer);
@@ -289,6 +290,7 @@ template <class Entry>
 int Binary_tree <Entry>::breadth()
 /* Post: Return the breadth of the tree.*/
 {
+  if (size() == 0) return 0;
   std::queue <Binary_node <Entry>*> generation;
   Binary_node <Entry>* visit = root;
   int max_width, width;
